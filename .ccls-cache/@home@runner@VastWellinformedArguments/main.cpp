@@ -13,11 +13,11 @@ public:
     string Grupa;
     int Rok;
 
-    // friend ostream& operator<<(ostream& output, const Student& data) {
-    //     output << "Nazwisko: " << data.Nazwisko << ", Imie: " << data.Imie << ", Nr albumu: " << data.NrAlbumu
-    //            << ", Grupa: " << data.Grupa << ", Rok: " << data.Rok;
-    //     return output;
-    // }
+    friend ostream& operator<<(ostream& output, const Student& data) {
+        output << "Nazwisko: " << data.Nazwisko << ", Imie: " << data.Imie << ", Nr albumu: " << data.NrAlbumu
+               << ", Grupa: " << data.Grupa << ", Rok: " << data.Rok;
+        return output;
+    }
 
     friend ofstream& operator<<(ofstream& output, const Student& data) {
         output << data.Nazwisko << endl
@@ -42,10 +42,10 @@ public:
         return input;
     }
 
-    // friend ifstream& operator>>(ifstream& input, Student& data) {
-    //     input >> data.Nazwisko >> data.Imie >> data.NrAlbumu >> data.Grupa >> data.Rok;
-    //     return input;
-    // }
+    friend ifstream& operator>>(ifstream& input, Student& data) {
+        input >> data.Nazwisko >> data.Imie >> data.NrAlbumu >> data.Grupa >> data.Rok;
+        return input;
+    }
 };
 
 int main() {
@@ -74,4 +74,5 @@ int main() {
     cout << "Liczba studentow 3 roku: " << count << endl;
 
     return 0;
+  //
 }
